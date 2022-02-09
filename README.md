@@ -18,7 +18,7 @@ https://discord.gg/B3Qv5nScVS
 
 ex) 2022-2-8(화)/jinseogho/boj-2036.cpp
 
-잘 모르시면 디스코드 링크로 질문해주시거나, jinseongho branch의 폴더 구조를 확인해보시길 바랍니다.
+잘 모르시면 디스코드 링크로 참여해 디스코드  질문해주시거나, jinseongho branch의 폴더 구조를 확인해보시길 바랍니다.
 
 ## 언제 끝나나요?
 - 2월 27일 일요일에 회의가 끝난 후 madcamp-2022/algorithm study 존망회의을 시작합니다.
