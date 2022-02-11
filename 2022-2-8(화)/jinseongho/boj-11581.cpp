@@ -2,18 +2,18 @@
 
 using namespace std;
 const int sz = 123'457;
-vector<int> v[sz];
-int s[sz];
-int w[sz];
+vector<long long> v[sz];
+long long s[sz];
+long long w[sz];
 
-int f(int idx){
-    int ret = 0;
+long long f(int idx){
+    long long ret = 0;
 
     for(int i = 0; i < v[idx].size(); i++){
         ret += f(v[idx][i]);
     }
 
-    return ret - w[idx] + s[idx];
+    return max(ret - w[idx] + s[idx], 0LL);
 }
 
 int main(){
@@ -26,6 +26,7 @@ int main(){
     for(int i = 2; i <= N; i++){
         char c;
         int a, b;
+        cin >> c;
         cin >> a >> b;
         v[b].push_back(i);
 
