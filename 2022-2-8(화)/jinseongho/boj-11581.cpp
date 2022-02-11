@@ -1,19 +1,27 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-const int sz = 123'457;
-vector<long long> v[sz];
-long long s[sz];
-long long w[sz];
 
-long long f(int idx){
-    long long ret = 0;
+vector<int> v[101];
 
-    for(int i = 0; i < v[idx].size(); i++){
-        ret += f(v[idx][i]);
+bool flag = true;
+
+int visited[101];
+
+void f(int start){
+    visited[start] = 2;
+    for(int i = 0; i < v[start].size(); i++){
+        int next = v[start][i];
+
+        if(!visited[next]){
+            f(next);
+        }
+
+        if(visited[next] == 2){
+            flag = false;
+        }
     }
-
-    return max(ret - w[idx] + s[idx], 0LL);
+    visited[start] = 1;
 }
 
 int main(){
@@ -23,19 +31,17 @@ int main(){
     int N;
     cin >> N;
 
-    for(int i = 2; i <= N; i++){
-        char c;
-        int a, b;
-        cin >> c;
-        cin >> a >> b;
-        v[b].push_back(i);
-
-        if(c == 'S'){
-            s[i] = a;
-        } else {
-            w[i] = a;
+    for(int i = 1; i < N; i++){
+        int m;
+        cin >> m;
+        while(m--){
+            int a;
+            cin >> a;
+            v[i].push_back(a);
         }
     }
 
-    cout << f(1);
+    f(1);
+
+    cout << (flag ? "NO " : "") << "CYCLE";
 }
