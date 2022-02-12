@@ -1,51 +1,51 @@
-arrayNum = int(input())
-hasZero = False
-posArray = []
-negArray = []
-tempNum = -1
+array_num = int(input())
+has_zero = False
+pos_array = []
+neg_array = []
+temp_num = 0
 flag = False
 total = 0
 
 n = 0
 
-while(n<arrayNum):
-    inputNum = int(input())
-    if (inputNum == 1):
+while(n<array_num):
+    input_num = int(input())
+    if (input_num == 1):
         total = total + 1
-    elif (inputNum == 0):
-        hasZero = True
-    elif (inputNum > 0):
-        posArray.append(inputNum)
+    elif (input_num == 0):
+        has_zero = True
+    elif (input_num > 0):
+        pos_array.append(input_num)
     else:
-        negArray.append(inputNum)
+        neg_array.append(input_num)
     n = n+1
 
-posArray.sort(reverse=True)
-negArray.sort()
+pos_array.sort(reverse=True)
+neg_array.sort()
 
-for i in posArray:
+for i in pos_array:
     if flag == False:
-        tempNum = i
+        temp_num = i
         flag = True
     else:
-        total = total + (tempNum * i)
+        total = total + (temp_num * i)
         flag = False
 
 if flag == True:
-    total = total + tempNum
+    total = total + temp_num
 
-flag = 0
+flag = False
 
-for i in negArray:
-    if (flag == 0):
-        tempNum = i
+for i in neg_array:
+    if (flag == False):
+        temp_num = i
         flag = True
     else:
-        total = total + (tempNum * i)
+        total = total + (temp_num * i)
         flag = False
 
 if (flag == True):
-    if (hasZero == False):
-        total = total + tempNum
+    if (has_zero == False):
+        total = total + temp_num
 
 print(total)
