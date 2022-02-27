@@ -1,37 +1,35 @@
 import sys
-from math import lcm, gcd
+from collections import deque
+
 input = sys.stdin.readline
 
 _ = input()
+# 창영 list
 c_list = list(map(int, input().split()))
+# 현우 list
 h_list = list(map(int, input().split()))
-possible_angles = set(c_list)
-answer_list = []
+possible_angles = [False] * 360
+possible_angles[0] = 1
 
-# 0 ~ 360 안의 각도로 만들기 위한 함수
-def angle(ang):
-    if ang < 0:
-        while(ang < 0):
-            ang += 360
-    if ang > 360:
-        ang %= 360
-    return ang
+queue = deque([0])
+while queue:
+    v = queue.popleft()
+    for i in c_list:
+        minus, plus = i-v, i+v
+        if minus < 0:
+            minus += 360
+        if plus >= 360:
+            plus -= 360
 
-while True:
-    a = c_list.pop()
-    
-    if len(c_list) == 0:
-        break
+        if possible_angles[minus] == False:
+            possible_angles[minus] = True
+            queue.append(minus)
+        if possible_angles[plus] == False:
+            possible_angles[plus] = True
+            queue.append(plus)
+
+for i in h_list:
+    if possible_angles[i]:
+        print("YES")
     else:
-        for i in c_list:
-            possible_angles.update([angle(a+i), angle(a-i)])
-
-# for i in h_list:
-#     is_answer = False
-#     i = angle(i)
-#     for j in list(possible_angles):
-    
-
-print(angle(lcm(100, 60)), angle(gcd(100, 60)))
-
-
+        print("NO")
