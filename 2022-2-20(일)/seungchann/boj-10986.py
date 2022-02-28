@@ -1,20 +1,19 @@
 import sys
-from itertools import combinations
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
-array = [0]
-array += list(map(int, input().split()))
-num_list = [0] * 1000
+v = list(map(int, input().split()))
 
-for i in range(len(array)):
-    if i != 0:
-        array[i] = (array[i-1] + array[i]) % m
-    
-    num_list[array[i]] += 1
+pSum, cnt = 0, [0] * m
+for i in range(n):
+    pSum = (pSum + v[i]) % m
+    cnt[pSum] += 1
 
-result = 0
-for i in num_list:
-    result += len(list(combinations(range(i), 2)))
+ans = 0
+for i in range(m):
+    if i == 0:
+        ans += cnt[i] * (cnt[i] + 1) >> 1
+    else:
+        ans += cnt[i] * (cnt[i] - 1) >> 1
+print(ans)
 
-print(result)
