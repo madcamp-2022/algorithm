@@ -26,15 +26,6 @@ def check_air():
             array[nx][ny] = 2
             visited[nx][ny] = True
 
-def check_cheese(i, j):
-    visited = [[False] * m for _ in range(n)]
-    visited[i][j] = True
-    queue = deque([(i,j)])
-    while queue:
-        x, y = queue.popleft()
-        cnt = 0
-        
-            
 result = 0
 while True:
     check_air()
