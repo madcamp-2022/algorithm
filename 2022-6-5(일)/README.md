@@ -1,10 +1,10 @@
 
-https://www.acmicpc.net/problem/1195
+https://www.acmicpc.net/problem/14496
 
-https://www.acmicpc.net/problem/1351
+https://www.acmicpc.net/problem/17352
 
-https://www.acmicpc.net/problem/17255
+https://www.acmicpc.net/problem/15922
 
-https://www.acmicpc.net/problem/1946
+https://www.acmicpc.net/problem/18290
 
-https://www.acmicpc.net/problem/4307
+https://www.acmicpc.net/problem/16938
